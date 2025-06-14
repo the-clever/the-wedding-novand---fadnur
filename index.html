@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .font-great-vibes {
+            font-family: 'Great Vibes', cursive;
+        }
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        .countdown-container {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        .countdown-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 10px 15px;
+            min-width: 80px;
+        }
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+        }
+        .countdown-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-poppins">
+    <!-- Header Section -->
+    <header class="bg-cover bg-center py-20" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('couple.jpg');">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="font-great-vibes text-5xl md:text-7xl mb-4">Novand & Fadnur</h1>
+            <p class="text-xl">Undangan Pernikahan</p>
+            <p class="mt-4">17 Juni 2025</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12 max-w-4xl">
+        <!-- Couple Info Section -->
+        <section class="mb-16 text-center">
+            <h2 class="font-great-vibes text-4xl mb-8">Kepada Yth.</h2>
+            <p class="text-lg mb-8">Dengan penuh kebahagiaan, kami mengundang Anda untuk hadir dalam acara pernikahan kami</p>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-12">
+                <div class="text-center">
+                    <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gray-200 mx-auto mb-4 overflow-hidden">
+                        <img src="novand.jpg" alt="Rofi" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-2xl font-semibold">Muhamad Novanda Nur Hidayatullah</h3>
+                    <p>Putra dari Bapak ... dan Ibu ...</p>
+                </div>
+                
+                <div class="text-4xl font-great-vibes my-4">&</div>
+                
+                <div class="text-center">
+                    <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gray-200 mx-auto mb-4 overflow-hidden">
+                        <img src="fadnur.jpg" alt="Dina" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-2xl font-semibold">Fadnur Rachimadona Sefira</h3>
+                    <p>Putri dari Bapak ... dan Ibu ...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Details Section -->
+        <section class="mb-16 bg-white rounded-lg shadow-md p-8">
+            <h2 class="font-great-vibes text-3xl mb-6 text-center">Detail Acara</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="text-center">
+                    <h3 class="text-xl font-semibold mb-4">Akad Nikah</h3>
+                    <p class="mb-2">📅 Senin, 16 Juni 2025</p>
+                    <p class="mb-2">🕘 09.00 - 11.00 WIB</p>
+                    <p class="mb-4">📍 Masjid UINSATU Tulungagung</p>
+                    <a href="https://maps.google.com" target="_blank" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+                        Buka di Google Maps
+                    </a>
+                </div>
+                
+                <div class="text-center">
+                    <h3 class="text-xl font-semibold mb-4">Resepsi</h3>
+                    <p class="mb-2">📅 Selasa, 17 Juni 2025</p>
+                    <p class="mb-2">🕛 07.00 - 22.00 WIB</p>
+                    <p class="mb-4">📍 Kos Putra Sumber Utama</p>
+                    <a href="https://maps.google.com" target="_blank" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+                        Buka di Google Maps
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    <div class="text-center p-8 bg-white rounded-2xl shadow-xl border border-gray-100 animate__animated animate__fadeIn animate__delay-1s">
+    <h1 class="text-3xl font-bold mb-6 text-gray-800 font-serif">Hari Bahagia Akan Tiba Pada:</h1>
+    
+    <!-- Tanggal Acara -->
+    <div class="text-xl text-amber-600 mb-8 font-medium" id="target-date"></div>
+    
+    <!-- Countdown Timer -->
+    <div class="grid grid-cols-4 gap-6 text-center max-w-md mx-auto">
+        <div class="bg-gradient-to-b from-amber-50 to-amber-100 p-4 rounded-xl shadow-inner">
+            <div class="text-4xl font-bold text-amber-600 mb-2 font-mono" id="days">00</div>
+            <div class="text-sm font-medium text-amber-500">Hari</div>
+        </div>
+        <div class="bg-gradient-to-b from-rose-50 to-rose-100 p-4 rounded-xl shadow-inner">
+            <div class="text-4xl font-bold text-rose-600 mb-2 font-mono" id="hours">00</div>
+            <div class="text-sm font-medium text-rose-500">Jam</div>
+        </div>
+        <div class="bg-gradient-to-b from-emerald-50 to-emerald-100 p-4 rounded-xl shadow-inner">
+            <div class="text-4xl font-bold text-emerald-600 mb-2 font-mono" id="minutes">00</div>
+            <div class="text-sm font-medium text-emerald-500">Menit</div>
+        </div>
+        <div class="bg-gradient-to-b from-blue-50 to-blue-100 p-4 rounded-xl shadow-inner">
+            <div class="text-4xl font-bold text-blue-600 mb-2 font-mono" id="seconds">00</div>
+            <div class="text-sm font-medium text-blue-500">Detik</div>
+        </div>
+    </div>
+    
+    <!-- Pesan Countdown -->
+    <div class="mt-8 text-gray-500 italic" id="countdown-message"></div>
+</div>
+
+        
+
+        <!-- Gallery Section -->
+        <section class="mb-16 py-4">
+            <h2 class="font-great-vibes text-3xl mb-8 text-center">Galeri Kami</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="h-40 bg-gray-200 rounded overflow-hidden">
+                    <img src="https://michaelwillphotography.com/wp-content/uploads/2016/01/best-wedding-photos-pittsburgh-172-1.jpg" alt="Foto 1" class="w-full h-full object-cover">
+                </div>
+                <div class="h-40 bg-gray-200 rounded overflow-hidden">
+                    <img src="https://pixnio.com/free-images/2017/08/02/2017-08-02-07-35-17.jpg" alt="Foto 2" class="w-full h-full object-cover">
+                </div>
+                <div class="h-40 bg-gray-200 rounded overflow-hidden">
+                    <img src="https://www.brides.com/thmb/5f_Rly6N57MCaIuAYo73wuR5iNY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/beach-wedding-62f22eaf7f5645128762e6f70809281211-cbb2e79091124684b5f519a0f110d4ac.jpg" alt="Foto 3" class="w-full h-full object-cover">
+                </div>
+                <div class="h-40 bg-gray-200 rounded overflow-hidden">
+                    <img src="https://i.pinimg.com/originals/32/ce/7d/32ce7de550070d27368872de78f5c234.jpg" alt="Foto 4" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- Love Story Section -->
+        <section class="mb-16 bg-white rounded-lg shadow-md p-8">
+            <h2 class="font-great-vibes text-3xl mb-8 text-center">Cerita Kami</h2>
+            
+            <div class="space-y-8">
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center shrink-0">
+                        <span class="text-pink-500 text-2xl">1</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Pertemuan Pertama</h3>
+                        <p>Kami pertama kali bertemu di kampus pada tahun 2015. Saat itu kami sama-sama mengikuti kegiatan organisasi mahasiswa.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center shrink-0">
+                        <span class="text-pink-500 text-2xl">2</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Mulai Dekat</h3>
+                        <p>Setelah beberapa bulan bekerja sama dalam proyek organisasi, kami mulai sering menghabiskan waktu bersama dan saling mengenal lebih dalam.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center shrink-0">
+                        <span class="text-pink-500 text-2xl">3</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Jatuh Cinta</h3>
+                        <p>Tanpa disadari, perasaan mulai tumbuh. Setelah melalui berbagai pertimbangan, kami memutuskan untuk menjalin hubungan serius.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center shrink-0">
+                        <span class="text-pink-500 text-2xl">4</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Melangkah ke Pelaminan</h3>
+                        <p>Setelah 5 tahun bersama, melalui suka dan duka, kami memutuskan untuk mengikat janji suci dalam ikatan pernikahan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section class="mb-16 bg-white rounded-lg shadow-md p-8">
+            <h2 class="font-great-vibes text-3xl mb-8 text-center">Konfirmasi Kehadiran</h2>
+            
+            <form class="max-w-md mx-auto" action="https://docs.google.com/forms/d/e/1FAIpQLSdtoraVf-hV8AwxEznPUn7NEABkyobeyIyg6k88MvkFxTDEoA/formResponse" method="POST" target="_blank">
+                <div class="mb-4">
+                    <label for="name" class="block mb-2">Nama Lengkap</label>
+                    <input type="text" id="name" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-pink-300" type="text" name="entry.402328901" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="attendance" class="block mb-2">Konfirmasi Kehadiran</label>
+                    <select id="attendance" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-pink-300" name="entry.807923684" required>
+                        <option value="">-- Pilih --</option>
+                        <option value="yes">Akan Hadir</option>
+                        <option value="no">Tidak Hadir</option>
+                    </select>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="guests" class="block mb-2">Jumlah Tamu</label>
+                    <input type="number" id="guests" min="1" value="1" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-pink-300" type="text" name="entry.757513242" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="message" class="block mb-2">Pesan/Ucapan (Opsional)</label>
+                    <textarea id="message" rows="3" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-pink-300" type="text" name="entry.234575043" required></textarea>
+                </div>
+                
+                <button type="submit" class="w-full bg-pink-500 text-white py-3 rounded hover:bg-pink-600 transition">
+                    Kirim Konfirmasi
+                </button>
+            </form>
+        </section>
+
+        <!-- Live Streaming Section -->
+        <section class="mb-16 bg-white rounded-lg shadow-md p-8 text-center">
+            <h2 class="font-great-vibes text-3xl mb-6">Live Streaming</h2>
+            <p class="mb-4">Bagi yang tidak dapat hadir secara langsung, dapat menyaksikan acara kami melalui live streaming:</p>
+            <a href="https://youtube.com/live" target="_blank" class="inline-block bg-red-500 text-white px-6 py-3 rounded hover:bg-red-600 transition">
+                Saksikan Live di YouTube
+            </a>
+        </section>
+
+        <!-- Guest Book Section -->
+        <section class="mb-16">
+            <h2 class="font-great-vibes text-3xl mb-8 text-center">Buku Tamu</h2>
+            
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                <form class="flex gap-4">
+                    <input type="text" placeholder="Tulis ucapan..." class="flex-1 px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-pink-300">
+                    <button type="submit" class="bg-pink-500 text-white px-6 py-2 rounded hover:bg-pink-600 transition">
+                        Kirim
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4">Terima kasih atas doa dan dukungannya</p>
+            <p class="font-great-vibes text-2xl mb-4">Novand & Fadnur</p>
+            <p class="text-sm">© 2023</p>
+        </div>
+    </footer>
+
+    <!-- Audio Player (Optional) -->
+    <div class="fixed bottom-4 right-4">
+        <button id="music-toggle" class="bg-pink-500 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-pink-600 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+            </svg>
+        </button>
+        <audio id="bg-music" loop>
+            <source src="Cinta Dalam Istikhoroh.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script>
+        // Toggle music
+        const musicToggle = document.getElementById('music-toggle');
+        const bgMusic = document.getElementById('bg-music');
+        let isPlaying = false;
+
+        musicToggle.addEventListener('click', () => {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicToggle.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clip-rule="evenodd" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                    </svg>
+                `;
+            } else {
+                bgMusic.play();
+                musicToggle.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                    </svg>
+                `;
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Form submission would be handled by Google Forms in actual implementation
+
+    // timer
+        // Set tanggal acara (format: Bulan/Hari/Tahun Jam:Menit:Detik)
+        const eventDate = new Date("06/17/2025 09:00:00").getTime();
+        
+        // Update countdown setiap 1 detik
+        const countdown = setInterval(function() {
+          const now = new Date().getTime();
+          const distance = eventDate - now;
+          
+          // Hitung hari, jam, menit, detik
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          
+          // Tampilkan hasil
+          document.getElementById("days").innerHTML = days.toString().padStart(2, "0");
+          document.getElementById("hours").innerHTML = hours.toString().padStart(2, "0");
+          document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, "0");
+          document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, "0");
+          
+          // Jika hitungan mundur selesai
+          if (distance < 0) {
+            clearInterval(countdown);
+            document.querySelector(".countdown-title").innerHTML = "Acara Sudah Dimulai!";
+            document.querySelector(".countdown-timer").innerHTML = '<div class="text-xl">Selamat menikmati acara kami</div>';
+          }
+        }, 1000);
+      </script>
+</body>
+</html>
